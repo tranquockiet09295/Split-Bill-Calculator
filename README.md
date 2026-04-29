@@ -1,10 +1,10 @@
 # Split Bill Calculator
 
-[![CI](https://github.com/USER/REPO/actions/workflows/ci.yml/badge.svg)](https://github.com/USER/REPO/actions/workflows/ci.yml)
+[![CI](https://github.com/tranquockiet09295/Split-Bill-Calculator/actions/workflows/ci.yml/badge.svg)](https://github.com/tranquockiet09295/Split-Bill-Calculator/actions/workflows/ci.yml)
 
 A Stellar testnet dApp that splits a bill across N addresses, sends each their share, and (optionally) records the bill on-chain so payers can settle in a custom stablecoin via an inter-contract token transfer. Built for the **Stellar Journey to Mastery** Builder Track, Levels 1–4.
 
-> Replace `USER/REPO` in the badge URL above with your GitHub path after pushing.
+**Live demo:** https://splitbillcalculator-two.vercel.app/
 
 - **L1 (White Belt)** — Freighter / multi-wallet connect, balance display, send equal-split XLM to N addresses in one transaction.
 - **L2 (Yellow Belt)** — `BillSplit` Soroban contract deployed on testnet; frontend creates bills and listens for `settled` events; ≥3 error categories surfaced; tx-status pipeline (preparing → signing → submitting → confirming).
@@ -161,26 +161,36 @@ npm test             # vitest run — 16 tests
 
 ## Deployed addresses
 
-> Fill in once you've deployed.
-
 | Item | Address / Hash |
 | --- | --- |
-| `bill-split` contract (testnet) | `C…` |
-| `stable-token` contract (testnet) | `C…` |
-| Sample `create_bill` tx hash | `…` |
-| Sample `settle` tx hash (with inter-contract transfer) | `…` |
-| Live demo | `https://….vercel.app` |
+| `bill-split` contract (testnet) | [`CC3FCIOUDBWLK3X65WJFQQTHLPEO7MEAG4DNLYFU4FNQPCIZKC4ANMUU`](https://stellar.expert/explorer/testnet/contract/CC3FCIOUDBWLK3X65WJFQQTHLPEO7MEAG4DNLYFU4FNQPCIZKC4ANMUU) |
+| `stable-token` contract (testnet) | [`CD56P27YTBVMHMTMFP56SPYS4DTCYRFEMO3AB64NCLDOR6433CQPZ4EI`](https://stellar.expert/explorer/testnet/contract/CD56P27YTBVMHMTMFP56SPYS4DTCYRFEMO3AB64NCLDOR6433CQPZ4EI) |
+| Sample split + `create_bill` tx hash | `91b246f763…` (see screenshot 2 below) |
+| Live demo | https://splitbillcalculator-two.vercel.app/ |
 
 ## Screenshots
 
-> Add screenshots of:
->
-> 1. Connected wallet showing XLM **and** BillCoin balances (L1, L4).
-> 2. Successful XLM split tx (with hash visible) (L1).
-> 3. Bill list with mixed paid / owes pills (L2, L3).
-> 4. Live `settled` event feed updating after a settlement (L2, L3).
-> 5. **Mobile view** at ~390px width (L4 mobile responsive).
-> 6. **GitHub Actions CI run** showing both jobs green (L4 CI/CD) — or just rely on the badge at the top of this README.
+### 1. Wallet connected — XLM + BILL balances + split form (L1, L2, L4)
+
+Wallet card shows **XLM** and **BILL** balances side by side; the split form is filled with a 1 XLM bill split between two payers, with "Also record on-chain" enabled.
+
+![Wallet connected and split form](docs/screenshots/01-wallet-and-form.png)
+
+### 2. Successful split tx + on-chain bill recorded (L1, L2, L3)
+
+Green status banner confirming the split was sent and recorded as bill #1, with a clickable tx hash. The "Your bills" panel below shows bill #1 with both payers in `owes` state.
+
+![Successful tx and bill list](docs/screenshots/02-tx-success-and-bill.png)
+
+### 3. Mobile responsive view (L4)
+
+The split form rendered on a mobile viewport — header, panels, and payer rows stack cleanly.
+
+<img src="docs/screenshots/03-mobile.jpg" alt="Mobile responsive view" width="360" />
+
+### 4. CI/CD pipeline (L4)
+
+CI status is shown by the green badge at the top of this README — it links directly to the latest GitHub Actions run at <https://github.com/tranquockiet09295/Split-Bill-Calculator/actions>.
 
 ## License
 
