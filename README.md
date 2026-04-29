@@ -5,6 +5,7 @@
 A Stellar testnet dApp that splits a bill across N addresses, sends each their share, and (optionally) records the bill on-chain so payers can settle in a custom stablecoin via an inter-contract token transfer. Built for the **Stellar Journey to Mastery** Builder Track, Levels 1–4.
 
 **Live demo:** https://splitbillcalculator-two.vercel.app/
+
 **Video demo:** https://drive.google.com/file/d/10b_CTXsSGoXmHRnT5q1M57h-5OSBql7r/view?usp=drive_link
 - **L1 (White Belt)** — Freighter / multi-wallet connect, balance display, send equal-split XLM to N addresses in one transaction.
 - **L2 (Yellow Belt)** — `BillSplit` Soroban contract deployed on testnet; frontend creates bills and listens for `settled` events; ≥3 error categories surfaced; tx-status pipeline (preparing → signing → submitting → confirming).
